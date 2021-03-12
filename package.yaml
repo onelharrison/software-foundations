@@ -1,0 +1,57 @@
+name:                software-foundations
+version:             0.1.0.0
+github:              "onelharrison/software-foundations"
+license:             BSD3
+author:              "Onel Harrison"
+copyright:           "2020 Onel Harrison"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/software-foundations#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+# - text
+- split
+- MissingH
+- scalpel
+- directory
+- http-types
+- http-client-tls
+- http-client
+- data-default
+- command
+- posix-escape
+
+library:
+  source-dirs: src
+
+executables:
+  software-foundations:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - software-foundations
+
+tests:
+  software-foundations-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - software-foundations
