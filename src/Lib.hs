@@ -19,6 +19,7 @@ data SFBook = LF
     | VFA
     | QC
     | VC
+    | SLF
 
 instance Show SFBook where
   show LF  = "lf"
@@ -26,6 +27,7 @@ instance Show SFBook where
   show VFA = "vfa"
   show QC  = "qc"
   show VC  = "vc"
+  show SLF = "slf"
 
 mkSFBook :: String -> Maybe SFBook
 mkSFBook str =
@@ -35,6 +37,7 @@ mkSFBook str =
     "vfa" -> Just VFA
     "qc"  -> Just QC
     "vc"  -> Just VC
+    "slf" -> Just SLF
     _     -> Nothing
 
 sfShowLong :: SFBook -> String
@@ -43,6 +46,7 @@ sfShowLong PLF = "ProgrammingLanguageFoundations"
 sfShowLong VFA = "VerifiedFuncationalAlgorithms"
 sfShowLong QC  = "QuickChickPropertyBasedTestingInCoq"
 sfShowLong VC  = "VerifiableC"
+sfShowLong SLF = "SeparationLogicFoundations"
 
 sfBookRootURL :: SFBook -> URL
 sfBookRootURL sfBook =
